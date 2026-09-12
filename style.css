@@ -1,0 +1,262 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #fdf0d5;
+  color: #003049;
+}
+
+/* HEADER */
+
+header {
+  height: 64px;
+  background: #c1121f;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav ul {
+  list-style: none;
+
+  display: flex;
+  gap: 10px;
+}
+
+nav button {
+  border: 0;
+  background: transparent;
+
+  color: white;
+  font-size: 16px;
+
+  padding: 10px 18px;
+
+  cursor: pointer;
+}
+
+nav button:hover {
+  opacity: 0.75;
+}
+
+/* GAME */
+.stage-wrapper {
+  overflow: hidden;
+  margin: 0 auto;
+  /* width/height are set by JS to match the scaled-down size */
+}
+main {
+  min-height: calc(100vh - 64px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game {
+  width: fit-content; /* was: width: min(1440px, 96vw); */
+  margin: 0 auto;
+}
+
+/* SCORE */
+
+.game-info {
+  height: 35px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 18px;
+}
+
+/* STAGE */
+
+.stage {
+  position: relative;
+
+  width: 1440px;
+  height: 1024px;
+
+  overflow: hidden;
+
+  border-bottom: 4px solid #003049;
+
+  background: #cfe8f3; /* placeholder sky — swap once background.png is finalized */
+  transform-origin: top left; /* add this line to your existing .stage rule */
+}
+
+.ground {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 310px;
+
+  background: url("assets/img/background.png") repeat-x bottom;
+  z-index: 1;
+}
+
+.clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 200%;
+  height: 200px;
+
+  background: url("assets/img/clouds.svg") repeat-x;
+  animation: cloudDrift 40s linear infinite;
+  z-index: 0;
+}
+
+@keyframes cloudDrift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* SKATER */
+
+.skater {
+  position: absolute;
+
+  left: 400px;
+  bottom: 310px; /* top of the ground layer */
+
+  width: 62px;
+  height: 80px;
+
+  z-index: 5;
+
+  user-select: none;
+  pointer-events: none;
+
+  --jump-duration: 700ms;
+}
+
+.skater.jumping {
+  animation: skaterArc var(--jump-duration) cubic-bezier(0.33, 0, 0.2, 1);
+}
+
+@keyframes skaterArc {
+  0% {
+    bottom: 310px;
+  }
+  38% {
+    bottom: 460px; /* ~150px peak — clears block-01's 120px height with margin */
+  }
+  100% {
+    bottom: 310px;
+  }
+}
+
+/* OBSTACLE */
+
+.obstacle {
+  position: absolute;
+
+  right: var(--start-right, -120px);
+  bottom: var(--ground-offset, 310px);
+
+  z-index: 4;
+}
+
+.obstacle.move {
+  animation: obstacleMove var(--obstacle-duration, 2.4s) linear forwards;
+}
+
+@keyframes obstacleMove {
+  from {
+    right: var(--start-right, -120px);
+  }
+  to {
+    right: 100%;
+  }
+}
+
+.obstacle img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* MESSAGE */
+
+.message {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 24px;
+  font-weight: bold;
+
+  pointer-events: none;
+
+  text-align: center;
+  z-index: 10;
+}
+
+.message.hidden {
+  display: none;
+}
+
+/* CONTROLS */
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+
+  margin-top: 30px;
+}
+
+/* BUTTONS */
+
+.game-btn {
+  width: 140px;
+
+  padding: 14px 20px;
+
+  border: 0;
+  border-radius: 4px;
+
+  background: #c1121f;
+  color: white;
+
+  font-size: 17px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.game-btn:hover {
+  background: #a30f1a;
+}
+
+.game-btn:active {
+  transform: translateY(2px);
+}
+
+/* NOTE: no mobile breakpoint yet — the stage is currently a fixed
+   1440x1024 desktop size per the new spec. Revisit responsiveness
+   once the desktop version is confirmed. */
+
+.footer {
+  margin-left: 10px;
+  margin-bottom: 20px;
+  color: #a30f1a;
+}

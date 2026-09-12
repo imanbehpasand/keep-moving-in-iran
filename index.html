@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skater Runner</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><button id="aboutBtn">About</button></li>
+          <li><button id="helpBtn">Help</button></li>
+          <li><button id="startPauseBtn">Start</button></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="game">
+        <div class="game-info">
+          <span> Score: <strong id="score">0</strong> </span>
+          <span> High Score: <strong id="highScore">0</strong> </span>
+        </div>
+        <div class="stage-wrapper" id="stageWrapper">
+          <div class="stage">
+            <div class="stage">
+              <div class="clouds"></div>
+              <div class="ground"></div>
+
+              <img
+                src="assets/skater.svg"
+                alt="Skater"
+                id="skater"
+                class="skater"
+              />
+
+              <div id="obstacle" class="obstacle">
+                <img id="obstacleImage" src="" alt="Obstacle" />
+              </div>
+
+              <div id="message" class="message">
+                <p>Press Start to play</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="jumpBtn" class="game-btn">JUMP</button>
+          <button id="downBtn" class="game-btn">DOWN</button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <nav>
+        <ul class="footer">
+          <li>Director: Bahman & Iman</li>
+        </ul>
+      </nav>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
