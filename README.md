@@ -35,13 +35,20 @@ The challenge comes from recognizing each obstacle and responding with the corre
 | `Space` / `↑` | Jump |
 | `↓` | Duck |
 
-<!-- Update this table if your key bindings differ from the defaults above. -->
-
 ## Gameplay Video
 
-<!-- Add a short clip or GIF here once available. A 5–10 second GIF loop
-     embeds directly in this README and is the fastest way for a visitor
-     to understand the game without leaving the page. -->
+[▶ Watch the gameplay video](video/skater.mp4)
+
+## Screenshots
+
+![Gameplay](posters/poster-skater.png)
+![Gameplay](posters/poster-skater-1.png)
+![Gameplay](posters/poster-skater-2.png)
+![Gameplay](posters/poster-skater-3.png)
+![Character](posters/skater-character.png)
+
+<!-- If any of these filenames changed during reorganizing, just tell me
+     and I'll update these lines — nothing else in the file depends on them. -->
 
 ## Live Demo
 
@@ -72,12 +79,11 @@ Character and environmental movement are synchronized to create the feeling of a
 
 ## What I Learned
 
-<!-- Draft based on what you told me — edit freely, this is a starting
-     point in your voice, not a final version. -->
+This project became a way to think about combining skills that are rarely found together in one person — in my case, animation and front-end development.
 
-The biggest challenge was finding the best way to combine animation and code. Most developers don't have a separate background in animation — 2D or stop-motion — and having that background turned out to be a real advantage in building something that felt alive rather than mechanical.
+That combination is a real advantage, but it isn't only that. Pursuing multiple disciplines at once means having less time to bring any single one to a fully professional level, and it creates its own challenges in how you present yourself and your work.
 
-But having the skills wasn't enough on its own. The harder part was system thinking: learning to structure the animation and the game logic so they could work together cleanly, instead of fighting each other. That process never really finishes — there's always a stronger way to build something, a faster way to get there, or a better result waiting on the other side of another iteration.
+*I'm currently writing a longer piece on this — "Amateur vs. Professional" — covering both sides of working across disciplines. Link coming soon.*
 
 ## Technologies
 
@@ -99,11 +105,6 @@ But having the skills wasn't enough on its own. The harder part was system think
 - Character animation
 - SVG-based visual assets
 - Browser-based gameplay
-
-## Screenshots
-
-<!-- Add 2–3 screenshots here once available — one of normal gameplay,
-     one mid-jump/duck, and one of the game-over screen works well. -->
 
 ## Running the Game Locally
 
